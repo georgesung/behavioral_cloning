@@ -2,6 +2,7 @@
 ### Udacity Self-Driving Car Nanodegree
 
 This project performs behavioral cloning, training an AI agent to mimic human driving behavior in a simulator. Training data is collected by a human demonstrator driving around a track in the simulator. Using the vehicle's camera images collected from the human demonstration, we train a deep neural network to predict the vehicle's steering angle. The final trained model is tested on the same test track that was run during the human demonstration. Below is an illustration of the aforementioned process:
+
 ![img](img/flow.png)
 
 During training, the human demonstrator drives the vehicle using his/her keyboard, as in a video game:
