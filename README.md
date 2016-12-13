@@ -6,9 +6,11 @@ This project performs behavioral cloning, training an AI agent to mimic human dr
 ![img](img/flow.png)
 
 During training, the human demonstrator drives the vehicle using his/her keyboard, as in a video game:
+
 ![img](img/train_screen.png)
 
 Here is a video demonstration of how the trained AI agent performs on the track (fully autonomous):
+
 [https://youtu.be/eHJ6yHTEdBM](https://youtu.be/eHJ6yHTEdBM)
 
 ## Dependencies
