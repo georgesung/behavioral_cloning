@@ -22,14 +22,22 @@ NUM_EPOCH = 10
 BATCH_SIZE = 16
 H, W, CH = 160, 320, 3
 LR = 1e-4
-L2_REG_SCALE = 5e-3  #0.
+L2_REG_SCALE = 0.
 
 
 def gen(data, labels, batch_size):
 	"""
 	Batch generator
 
-	data_in contains strings representing the path of the image files
+	Arguments:
+		data: List of strings containing the path of image files
+		labels: List of steering angles
+		batch_size: Size of the batch to generate
+
+	Yields:
+		A tuple (X_batch, y_batch), where:
+			X_batch: Batch of images, a tensor of shape (batch_size, H, W, CH)
+			y_batch: Batch of steering angles
 	"""
 	start = 0
 	end = start + batch_size
@@ -59,7 +67,11 @@ def gen(data, labels, batch_size):
 
 
 def get_model():
-	# https://github.com/commaai/research/blob/master/train_steering_model.py
+	"""
+	Creates the comma.ai model, and returns a reference to the model
+	The comma.ai model's original source code is available at:
+	https://github.com/commaai/research/blob/master/train_steering_model.py
+	"""
 	ch, row, col = CH, H, W  # camera format
 
 	model = Sequential()

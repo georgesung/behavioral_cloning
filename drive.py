@@ -48,7 +48,14 @@ def telemetry(sid, data):
 	steering_angle = float(model.predict(transformed_image_array, batch_size=1))
 	
 	# Throttle is a peicewise linear function of steering angle
-	throttle = max(0.1, -0.15/0.05 * abs(steering_angle) + 0.35)
+	#throttle = max(0.1, -0.15/0.05 * abs(steering_angle) + 0.35)
+	#throttle = 0.35 if abs(steering_angle) < 0.04 else 0.15 if abs(steering_angle) < 0.4 else -0.5
+	if abs(steering_angle) < 0.03:
+		throttle = 0.25
+	elif abs(steering_angle) < 0.4:
+		throttle = 0.15
+	else:
+		throttle = -0.5
 
 	print('steering angle: %.4f, throttle: %.4f' % (steering_angle, throttle))
 	send_control(steering_angle, throttle)
